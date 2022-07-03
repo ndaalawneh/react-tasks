@@ -1,80 +1,51 @@
+import { BrowserRouter , Route , Routes, NavLink } from "react-router-dom";
+import './movielist.css' ;
+import './App.css' ;
+import Home from "./home";
+import About from "./about";
+import Movies from "./Movielist";
+import Movie from "./Movie";
+
+
 import React from "react";
-import './App.css';
-import Navbar from "./components";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from './pages';
-import About from './pages/about';
-import Contact from './pages/contact';
-import SignUp from './pages/signup';
-import SignIn from './pages/signin';
+
+export default function App(){
 
 
+return(
 
-import {
-  Nav,
-  NavLogo,
-  NavLink,
-  Bars,
-  NavMenu,
-  NavBtn,
-  NavBtnLink,
-} from "./components/NavbarElements";
+  <BrowserRouter>
 
-function App() {
-  return (
 
-   <>
-    <Nav>
-    <NavLogo to="/">
-        Logo
-    </NavLogo>
-    <Bars />
+  <nav>
+ <h3>AN</h3>
 
-    <NavMenu>
-        <NavLink 
-          to="/" 
-          activeStyle={{ color:'black' }}
-        >
-            Home
-        </NavLink>
-        <NavLink 
-          to="/about" 
-          activeStyle={{ color: 'black' }}
-        >
-            About
-        </NavLink>
-        <NavLink 
-          to="/contact" 
-          activeStyle={{ color: 'black' }}
-        >
-            Contact
-        </NavLink>
-        <NavLink 
-          to="/signin" 
-          activeStyle={{ color: 'black' }}
-        >
-            Sign In
-        </NavLink>
-        <NavBtn>
-            <NavBtnLink to="/sign-up">Sign Up</NavBtnLink>                
-        </NavBtn>
-    </NavMenu> 
-   </Nav> 
+    <ul>
+    <li>
+      <NavLink to='/home'>home</NavLink>
+    </li>
+
+    <li>
+      <NavLink to='/about'>about</NavLink>
+    </li>
+    <li>
+      <NavLink to='/movies'>Movies</NavLink>
+    </li>
+    </ul>
+  </nav>
   
+  <Routes>
 
+    <Route path="/home" element={<Home/>}/>
+    <Route path="/about" element={<About/>}/>
+    <Route path="/movies" element={<Movies/>}/>
+    <Route path="/movies/:id" element={<Movie/>}/>
 
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={Home} />
-        <Route path="/about" element={About} />
-        <Route path="/contact" element={Contact} />
-        <Route path="/signin" element={SignIn} />
-        <Route path="/sign-up" element={SignUp} />
-      </Routes>
-    </Router> 
-    </>
-  );
+  </Routes>
+  
+  
+  </BrowserRouter>
+
+);
+
 }
-
-export default App;

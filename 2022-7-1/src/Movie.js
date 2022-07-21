@@ -47,7 +47,7 @@ useEffect(()=>{
 					<p className="time">2h 28m</p>
 				</div>
 				<p className="disc">{movie.overview}</p>
-				<a href="https://www.imdb.com/title/tt4912910/" target="_blank">Read More</a>
+				
 			<div className="social-btn">
      
 				<button>
